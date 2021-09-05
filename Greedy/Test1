@@ -1,0 +1,20 @@
+#모험가 길드
+
+#모험가수 입력
+n = int(input())
+#총 그룹수
+result = 0 
+#현개 그룹에 포함된 모험가수
+count  = 0 
+
+#공포도를 리스트로 입력받음
+array = list(map(int, input().split()))
+array.sort()
+
+for i in array:
+	count += 1 #현재 그룹에 모험가수 추가
+	if i <= count: #
+		result +=1
+		count = 0
+	
+print(result)
