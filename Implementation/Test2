@@ -1,0 +1,18 @@
+#문자열 재정렬
+
+n = input()
+array = []
+result = 0
+
+for i in n:
+	if i.isalpha():
+		array.append(i)
+	else:
+		result +=int(i)
+
+array.sort()
+
+if result != 0:
+	array.append(str(result))
+
+print(''.join(array))
