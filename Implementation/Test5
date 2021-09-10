@@ -1,8 +1,10 @@
+#뱀
+
 n = int(input()) # 맵 정보
 k = int(input()) # 사과의 개수
 info = [] #방향 회전 정보
 
-board = [[0]*n for _ in range(n)]
+board = [[0]* ( n + 1 ) for _ in range(n+1)]
 
 #사과가 있는곳 위치
 for _ in range(k):
@@ -12,8 +14,8 @@ for _ in range(k):
 #방향 정보 입력
 l = int(input())
 for _ in range(l):
-	x, c = map(input().split())
-	info.append(int(x), c)
+	x, c = input().split()
+	info.append((int(x), c))
 
 
 dx = [0, 1, 0, -1]
@@ -41,11 +43,22 @@ def simulate():
 			if board[nx][ny] == 1:
 				board[nx][ny] = 2
 				q.append((ny, ny))
+		else:
+			time += 1
+			break
+		x, y = nx, ny
+		time +=1
+		if index < 1 and time == info[index][0]:
+			direction = turn(direction, info[index][1])
+			index += 1
+	return time
 
-			
+def turn(direction, c):
+	if c == "L":
+		direction = (direction - 1) %4
+	else:
+		direction = (direction + 1) %4
+	return direction	
 
 
-
-
-
-
+print(simulate())
