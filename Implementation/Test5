@@ -10,7 +10,7 @@ board = [[0]* ( n + 1 ) for _ in range(n+1)]
 for _ in range(k):
 	a, b = map(int, input().split())
 	board[a][b] = 1
-
+print(board)
 #방향 정보 입력
 l = int(input())
 for _ in range(l):
